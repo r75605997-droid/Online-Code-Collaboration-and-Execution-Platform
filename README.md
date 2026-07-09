@@ -1,13 +1,29 @@
 # Online Code Collaboration and Execution Platform
 
-<<<<<<< HEAD
-A MERN-stack web application for real-time collaborative coding, with Socket.IO wired in for future live-editing features.
+A real-time collaborative coding platform built with the MERN Stack, Socket.IO, and MongoDB.
 
-> **Status:** Project Setup phase only. No feature logic (auth, editor, code execution) has been implemented yet — this repository establishes the architecture, tooling, and conventions the rest of the project will build on.
+## 📖 Project Description
+
+The Online Code Collaboration and Execution Platform is a MERN stack web application that allows multiple users to collaborate on coding projects in real time. The platform aims to provide a shared coding environment where users can write code together, communicate efficiently, and execute programs from a single interface.
+
+This project is being developed as part of a software development internship to demonstrate full-stack web development practices and real-time collaboration using the MERN Stack. Currently, the initial project setup and development environment have been completed, while the core application features will be implemented in upcoming phases.
+
+## ❓ Problem Statement
+
+Developers, students, and instructors often need to collaborate on coding tasks remotely. Existing methods such as screen sharing or exchanging code files are inefficient for real-time collaboration. This project aims to solve that problem by providing a single platform where users can write, edit, and execute code together in real time.
+
+## 🎯 Target Users
+
+- Students
+- Software Developers
+- Coding Interview Candidates
+- Recruiters
+- Instructors and Mentors
+- Development Teams
 
 ---
 
-## Tech Stack
+## 🛠️ Technology Stack
 
 | Layer | Technology |
 |---|---|
@@ -15,12 +31,12 @@ A MERN-stack web application for real-time collaborative coding, with Socket.IO 
 | Backend | Node.js, Express.js |
 | Database | MongoDB (Mongoose) |
 | Real-time | Socket.IO |
-| Auth (scaffolded) | bcrypt, jsonwebtoken |
+| Authentication | Planned (JWT, bcrypt) |
 | Dev Tooling | nodemon, concurrently, dotenv, cors |
 
 ---
 
-## Project Structure
+## 📂 Project Structure
 
 ```
 online-code-collab-platform/
@@ -71,169 +87,12 @@ online-code-collab-platform/
 ├── .gitignore
 ├── package.json                    # Root scripts (concurrently runner)
 └── README.md
-=======
-## 📖 Project Overview
-
-The **Online Code Collaboration and Execution Platform** is a web-based application that allows multiple users to collaborate on coding projects in real time. Users can create or join coding rooms, write and edit code together, execute programs securely, and communicate through an integrated chat system.
-
-The platform is designed to simplify collaborative programming by bringing code editing, execution, and communication into a single environment. It is useful for coding interviews, online programming classes, hackathons, team projects, and remote software development.
-
----
-
-## 🎯 Project Objectives
-
-The primary objectives of this project are:
-
-- Provide real-time collaborative code editing.
-- Execute code securely within the browser.
-- Support multiple programming languages.
-- Enable seamless communication between participants.
-- Improve productivity by reducing dependency on multiple tools.
-- Create a secure and scalable collaboration platform.
-
----
-
-## 👥 Target Users
-
-This platform is designed for:
-
-- Students
-- Faculty/Instructors
-- Software Developers
-- Recruiters
-- Interview Candidates
-- Organizations
-- Team Leads
-- Administrators
-
----
-
-## ✨ Key Features
-
-### User Authentication
-- Secure registration and login
-- Role-based access control
-- JWT Authentication
-- OAuth Login (Google/GitHub)
-
-### Real-Time Code Collaboration
-- Multiple users can edit code simultaneously.
-- Instant synchronization of changes.
-- Live cursor updates.
-
-### Online Code Execution
-- Execute code directly from the browser.
-- Support for multiple programming languages.
-- Secure execution using Docker containers.
-
-### Collaboration Rooms
-- Create public or private coding rooms.
-- Invite users via room link or code.
-- Manage participant permissions.
-
-### Chat System
-- Real-time messaging.
-- Team discussion during coding sessions.
-
-### Dashboard
-- View recent sessions.
-- Access saved projects.
-- Join active rooms.
-
-### Save & Resume
-- Save projects.
-- Resume coding later.
-
----
-
-## 🚀 Future Enhancements
-
-- Voice Calling
-- Video Conferencing
-- Screen Sharing
-- Whiteboard
-- AI Code Suggestions
-- AI Debugging Assistant
-- Version History
-- Code Playback
-- GitHub Integration
-- Progress Tracking
-- Interview Recording
-- Leaderboard
-- Plagiarism Detection
-- Notifications
-- Multi-file Project Support
-
----
-
-## 🛠 Technology Stack
-
-### Frontend
-- React.js
-- Tailwind CSS
-- Monaco Editor
-
-### Backend
-- Node.js
-- Express.js
-- Socket.IO
-
-### Database
-- MongoDB
-or
-- PostgreSQL
-
-### Authentication
-- JWT
-- OAuth
-- bcrypt
-
-### Code Execution
-- Docker
-- Judge0 API
-
-### Deployment
-- Vercel
-- Render
-- MongoDB Atlas
-
----
-
-## 📂 Project Structure
-
-```
-Online-Code-Collaboration-Execution-Platform
-│
-├── client/
-│   ├── components/
-│   ├── pages/
-│   ├── hooks/
-│   ├── services/
-│   └── assets/
-│
-├── server/
-│   ├── controllers/
-│   ├── routes/
-│   ├── middleware/
-│   ├── models/
-│   ├── sockets/
-│   ├── config/
-│   └── utils/
-│
-├── docker/
-│
-├── docs/
-│
-├── README.md
-├── package.json
-└── .env
->>>>>>> 0edff30980a252e33288f6db26441f1c800d3258
 ```
 
 ---
 
-<<<<<<< HEAD
-## Prerequisites
+
+## 📋 Prerequisites
 
 - Node.js v18+ and npm
 - MongoDB running locally, or a MongoDB Atlas connection string
@@ -241,13 +100,13 @@ Online-Code-Collaboration-Execution-Platform
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repo-url>
-cd online-code-collab-platform
+git clone https://github.com/r75605997-droid/Online-Code-Collaboration-and-Execution-Platform.git
+cd Online-Code-Collaboration-and-Execution-Platform
 ```
 
 ### 2. Install dependencies (root, backend, and frontend)
@@ -305,6 +164,7 @@ npm run frontend  # Vite dev server on :5173
 ### 5. Verify the setup
 
 - Visit `http://localhost:5173` — you should see the placeholder Home page styled with Tailwind.
+
 - Visit `http://localhost:5000/api/health` — you should get:
 
 ```json
@@ -317,17 +177,72 @@ npm run frontend  # Vite dev server on :5173
 
 ---
 
-## Notes on Design Decisions
+## 📡 API Endpoint
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /api/health | Returns the server health status |
+
+## 📝 Design Decisions
 
 - **Monorepo with two independent `package.json` files** (`backend/`, `frontend/`) plus a thin root `package.json` that only holds `concurrently` — keeps each app's dependency tree isolated while allowing single-command startup.
 - **Socket.IO is attached to the raw `http.Server`**, not directly to the Express app, so both HTTP routes and WebSocket connections can share port 5000.
-- **`User.model.js` and `auth.js` middleware are scaffolded but unused** — they exist so the next phase (Authentication) can plug in without restructuring folders.
+- **The project structure is designed for scalability**, making it easier to integrate authentication, user management, and additional features in future development phases.
 - **Tailwind v4** uses the `@tailwindcss/postcss` PostCSS plugin (no `tailwind.config.js` needed for basic setup) — styling is driven by a single `@import "tailwindcss";` in `index.css`.
 - **Centralized Axios instance and Socket.IO client** in `services/` mean components never instantiate their own HTTP/socket connections.
 
 ---
 
-## Next Phases (not part of this setup)
+## ✨ Current Features
+
+- MERN project setup
+- MongoDB integration
+- Socket.IO setup
+- Health Check API
+- Organized folder structure
+- Git & GitHub integration
+- Environment variable configuration
+
+---
+
+## 🚀 Planned Features
+
+- User Authentication
+- Landing Page
+- Dashboard
+- Real-time Code Editor
+- Code Execution
+- Chat System
+- Collaboration Rooms
+- User Profile
+- Judge0 API Integration
+- Docker Support
+
+---
+
+## 🚧 Project Status
+
+**Current Status:** Development Phase (Initial Setup Completed)
+
+### Completed
+- MERN project setup
+- MongoDB connection
+- Socket.IO integration
+- Project folder structure
+- Git & GitHub setup
+- Development environment configuration
+
+### Upcoming
+- User Authentication
+- Landing Page
+- Dashboard
+- Real-time Code Editor
+- Code Execution
+- Chat System
+
+---
+
+## 📌 Next Development Phases
 
 1. Authentication (register/login, protected routes, JWT issuing)
 2. Room creation and real-time collaborative editing (Socket.IO events, operational transforms or CRDT)
@@ -337,17 +252,7 @@ npm run frontend  # Vite dev server on :5173
 
 ---
 
-## Version Control
 
-```bash
-git init
-git add .
-git commit -m "chore: initial project setup (MERN + Socket.IO scaffold)"
-git branch -M main
-git remote add origin <your-github-repo-url>
-git push -u origin main
-```
-=======
 ## 🔄 Workflow
 
 1. User signs up or logs in.
@@ -382,8 +287,7 @@ git push -u origin main
 - Audit Logs
 
 ---
-
-## 🔒 Security Features
+## 🔒 Planned Security Features
 
 - JWT Authentication
 - Password Encryption (bcrypt)
@@ -415,10 +319,13 @@ The platform can be expanded by integrating AI-powered coding assistance, cloud-
 
 ---
 
-## 🤝 Contributors
+## 👩‍💻 Developer
 
-- Project Developer: *Your Name*
-- Guide/Mentor: *Faculty Name*
+**Rashi**
+
+GitHub Profile: [r75605997-droid](https://github.com/r75605997-droid)
+
+Project Repository: [Online Code Collaboration and Execution Platform](https://github.com/r75605997-droid/Online-Code-Collaboration-and-Execution-Platform)
 
 ---
 
@@ -431,4 +338,4 @@ This project is developed for educational purposes. It can be modified and exten
 ## ⭐ Project Goal
 
 The goal of this project is to build a secure, scalable, and user-friendly online platform where users can collaborate on code in real time, execute programs safely, and improve teamwork through an integrated coding environment.
->>>>>>> 0edff30980a252e33288f6db26441f1c800d3258
+
