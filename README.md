@@ -163,7 +163,7 @@ npm run frontend  # Vite dev server on :5173
 
 ### 5. Verify the setup
 
-- Visit `http://localhost:5173` — you should see the placeholder Home page styled with Tailwind.
+- Visit http://localhost:5173 — you should see the responsive landing page with Login and Register screens.
 
 - Visit `http://localhost:5000/api/health` — you should get:
 
@@ -202,6 +202,11 @@ npm run frontend  # Vite dev server on :5173
 - Organized folder structure
 - Git & GitHub integration
 - Environment variable configuration
+Responsive Landing Page
+Login Page UI
+Registration Page UI
+React Router Navigation
+Vercel Deployment
 
 ---
 
