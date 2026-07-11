@@ -202,11 +202,11 @@ npm run frontend  # Vite dev server on :5173
 - Organized folder structure
 - Git & GitHub integration
 - Environment variable configuration
-Responsive Landing Page
-Login Page UI
-Registration Page UI
-React Router Navigation
-Vercel Deployment
+-Responsive Landing Page
+-Login Page UI
+-Registration Page UI
+-React Router Navigation
+-Vercel Deployment
 
 ---
 
