@@ -3,21 +3,15 @@ import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Dashboard from "../pages/Dashboard";
 
-/**
- * Central<Routes>
-  <Route path="/" element={<Home />} />
-  <Route path="/login" element={<Login />} />
-  <Route path="*" element={<NotFound />} />
-</Routes>zed route definitions.
- * Add new pages (Login, Register, Editor, Room) here as they're built.
- */
 const AppRoutes = () => {
   return (
  <Routes>
   <Route path="/" element={<Home />} />
   <Route path="/login" element={<Login />} />
   <Route path="/register" element={<Register />} />
+  <Route path="/dashboard" element={<Dashboard />} />
   <Route path="*" element={<NotFound />} />
 </Routes>   
   );
