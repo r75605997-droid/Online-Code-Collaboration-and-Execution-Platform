@@ -1,9 +1,33 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
 const Dashboard = () => {
     const navigate = useNavigate();
+    const [roomId, setRoomId] = useState("");
+useEffect(() => {
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    navigate("/login");
+  }
+}, [navigate]);
 
 const handleCreateRoom = () => {
   const roomId = crypto.randomUUID();
+  navigate(`/room/${roomId}`);
+};
+
+const handleLogout = () => {
+  localStorage.removeItem("token");
+  navigate("/login");
+};
+
+const handleJoinRoom = () => {
+  if (!roomId.trim()) {
+    alert("Please enter a Room ID");
+    return;
+  }
+
   navigate(`/room/${roomId}`);
 };
   return (
@@ -15,9 +39,12 @@ const handleCreateRoom = () => {
     CodeCollab
   </h1>
 
-  <button className="rounded-xl bg-red-500 px-5 py-2 font-semibold transition duration-300 hover:bg-red-600">
-    Logout
-  </button>
+  <button
+  onClick={handleLogout}
+  className="rounded-xl bg-red-500 px-5 py-2 font-semibold transition duration-300 hover:bg-red-600"
+>
+  Logout
+</button>
 
 </nav>
 
@@ -33,15 +60,29 @@ const handleCreateRoom = () => {
 
 </div>
 
-<div className="mx-auto mt-10 flex max-w-6xl gap-6 px-8">
+<div className="mx-auto mt-10 flex max-w-6xl gap-4 px-8">
 
-  <button className="rounded-xl bg-blue-600 px-8 py-4 font-semibold transition duration-300 hover:scale-105 hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/40">
+  <button
+    onClick={handleCreateRoom}
+    className="rounded-xl bg-blue-600 px-8 py-4 font-semibold transition duration-300 hover:scale-105 hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/40"
+  >
     ➕ Create Room
   </button>
 
-  <button className="rounded-xl border border-blue-500 px-8 py-4 font-semibold text-blue-400 transition duration-300 hover:scale-105 hover:bg-blue-500 hover:text-white">
-    🔗 Join Room
-  </button>
+  <input
+    type="text"
+    placeholder="Enter Room ID"
+    value={roomId}
+    onChange={(e) => setRoomId(e.target.value)}
+    className="rounded-xl border border-slate-700 bg-slate-800 px-4 py-4 text-white outline-none focus:border-blue-500"
+  />
+
+  <button
+  onClick={handleJoinRoom}
+  className="rounded-xl border border-blue-500 px-8 py-4 font-semibold text-blue-400 transition duration-300 hover:scale-105 hover:bg-blue-500 hover:text-white"
+>
+  🔗 Join Room
+</button>
 
 </div>
 

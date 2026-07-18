@@ -1,8 +1,40 @@
 import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
  const [showPassword, setShowPassword] = useState(false);
 
+ const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+
+const navigate = useNavigate();
+
+const handleLogin = async (e) => {
+  e.preventDefault();
+
+  try {
+    const response = await axios.post(
+      "http://localhost:5000/api/auth/login",
+      {
+        email,
+        password,
+      }
+    );
+
+    // Token save
+    localStorage.setItem("token", response.data.token);
+
+    console.log(response.data);
+
+navigate("/dashboard");
+
+  } catch (error) {
+    alert(
+      error.response?.data?.message || "Login Failed"
+    );
+  }
+};
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-slate-900">
 
@@ -20,15 +52,18 @@ const Login = () => {
           Sign in to continue your coding journey with CodeCollab.
         </p>
 
-        <form className="space-y-5">
+        <form className="space-y-5" onSubmit={handleLogin}>
 
           <div className="relative">
 
   <input
-    type={showPassword ? "text" : "password"}
-    placeholder="Enter your password"
-    className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 pr-12 text-white transition duration-300 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"
-  />
+  type="email"
+  placeholder="Enter your email"
+  className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 pr-12 text-white transition duration-300 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+   className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 pr-12 text-white transition duration-300 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"
+/>
 
   <button
     type="button"
@@ -43,6 +78,8 @@ const Login = () => {
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Enter your password"
+            value={password}
+onChange={(e) => setPassword(e.target.value)}
             className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-white transition duration-300 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/30"
           />
 
